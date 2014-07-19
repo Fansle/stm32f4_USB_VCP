@@ -39,6 +39,7 @@ CFLAGS_INCLUDE=-I./ \
 PERIPHERAL=../../Peripherals
 HARDWARE=../../Hardware
 USER_LIB=../../User_Lib
+USB_LIB = ../../USB_Lib
 
 #User Source Files
 SRC+=	./main.c \
