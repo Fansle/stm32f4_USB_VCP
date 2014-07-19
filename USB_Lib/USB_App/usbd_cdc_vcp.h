@@ -57,6 +57,9 @@ int VCP_get_char(uint8_t *buf);
 int VCP_get_string(uint8_t *buf);
 void VCP_send_buffer(uint8_t* buf, int len);
 
+uint16_t VCP_DataTx   (uint8_t* Buf, uint32_t Len);
+uint16_t VCP_DataRx   (uint8_t* Buf, uint32_t Len);
+
 #define DEFAULT_CONFIG                  0
 #define OTHER_CONFIG                    1
 
