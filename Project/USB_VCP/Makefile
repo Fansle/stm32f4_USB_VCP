@@ -51,6 +51,12 @@ SRC+=	./main.c \
 	$(USB_LIB)/USB_App/usbd_cdc_vcp.c \
 	$(USB_LIB)/USB_App/usbd_desc.c \
 	$(USB_LIB)/USB_App/usbd_usr.c \
+	#USB_Device
+	$(USB_LIB)/USB_Device/usbd_cdc_core.c \
+	$(USB_LIB)/USB_Device/usbd_core.c \
+	$(USB_LIB)/USB_Device/usbd_ioreq.c \
+	$(USB_LIB)/USB_Device/usbd_req.c \
+
 
 #User Header Files
 CFLAGS_INCLUDE+=-I./ \
@@ -58,6 +64,7 @@ CFLAGS_INCLUDE+=-I./ \
 		-I$(PERIPHERAL)/usart2 \
 		-I$(USER_LIB)/myprintf \
 		-I$(USB_LIB)/USB_App \
+		-I$(USB_LIB)/USB_Device \
 #============================================================================# 
 CFLAGS_DEFINE= \
         -D USE_STDPERIPH_DRIVER \
