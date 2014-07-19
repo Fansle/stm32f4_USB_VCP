@@ -45,7 +45,8 @@ USB_LIB = ../../USB_Lib
 SRC+=	./main.c \
 	$(HARDWARE)/LED/led.c \
 	$(PERIPHERAL)/usart2/usart2.c \
-	$(USER_LIB)/myprintf/myprintf.c 
+	$(USER_LIB)/myprintf/myprintf.c \
+	#USB_App 
 	$(USB_LIB)/USB_App/usb_bsp.c \
 	$(USB_LIB)/USB_App/usbd_cdc_vcp.c \
 	$(USB_LIB)/USB_App/usbd_desc.c \
