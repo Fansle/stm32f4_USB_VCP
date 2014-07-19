@@ -11,6 +11,14 @@
 #include "usart2.h"
 #include "myprintf.h"
 
+#include "usbd_cdc_core.h"
+#include "usbd_usr.h"
+#include "usbd_desc.h"
+#include "usbd_cdc_vcp.h"
+
+__ALIGN_BEGIN USB_OTG_CORE_HANDLE  USB_OTG_dev __ALIGN_END;
+
+
 //Delay for a while
 //time: delay time
 static void delay(int32_t time)
@@ -23,7 +31,8 @@ int main(void)
 	LED_Init();
 	Usart2_Init(230400);
 	Myprintf_Init(0x00,myputc);
-
+	USBD_Init(&USB_OTG_dev,USB_OTG_FS_CORE_ID,&USR_desc,&USBD_CDC_cb,&USR_cb);
+	
 	while(1) 
 	{
 		delay(8000000);
