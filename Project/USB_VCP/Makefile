@@ -46,12 +46,17 @@ SRC+=	./main.c \
 	$(HARDWARE)/LED/led.c \
 	$(PERIPHERAL)/usart2/usart2.c \
 	$(USER_LIB)/myprintf/myprintf.c 
+	$(USB_LIB)/USB_App/usb_bsp.c \
+	$(USB_LIB)/USB_App/usbd_cdc_vcp.c \
+	$(USB_LIB)/USB_App/usbd_desc.c \
+	$(USB_LIB)/USB_App/usbd_usr.c \
 
 #User Header Files
 CFLAGS_INCLUDE+=-I./ \
 		-I$(HARDWARE)/LED \
 		-I$(PERIPHERAL)/usart2 \
-		-I$(USER_LIB)/myprintf 
+		-I$(USER_LIB)/myprintf \
+		-I$(USB_LIB)/USB_App \
 #============================================================================# 
 CFLAGS_DEFINE= \
         -D USE_STDPERIPH_DRIVER \
