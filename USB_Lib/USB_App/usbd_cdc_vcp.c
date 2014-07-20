@@ -115,22 +115,20 @@ static uint16_t VCP_Ctrl(uint32_t Cmd, uint8_t* Buf, uint32_t Len)
       case GET_ENCAPSULATED_RESPONSE:
          break;
 
+      // Not needed for this driver
       case SET_COMM_FEATURE:                  
       case GET_COMM_FEATURE:
       case CLEAR_COMM_FEATURE:
          break;
-
       case SET_LINE_CODING: 
             return USBD_FAIL;
-         break;        
+         break;
       case GET_LINE_CODING:
-         break;        
+         break;     
       case SET_CONTROL_LINE_STATE:
-
          break;
       case SEND_BREAK:
          break;
-
       default:
          break;
 	}
@@ -145,6 +143,7 @@ static uint16_t VCP_Ctrl(uint32_t Cmd, uint8_t* Buf, uint32_t Len)
  * @brief  VCP_DataTx
  *         CDC received data to be send over USB IN endpoint are managed in
  *         this function.
+ *         *Data Send to USB
  * @param  Buf: Buffer of data to be sent
  * @param  Len: Number of data to be sent (in bytes)
  * @retval Result of the opeartion: USBD_OK if all operations are OK else VCP_FAIL
@@ -167,7 +166,7 @@ static uint16_t VCP_DataTx(uint8_t* Buf, uint32_t Len)
  * @brief  VCP_DataRx
  *         Data received over USB OUT endpoint are sent over CDC interface
  *         through this function.
- *
+ *         *Data Received from USB
  *         @note
  *         This function will block any OUT packet reception on USB endpoint
  *         until exiting this function. If you exit this function before transfer
