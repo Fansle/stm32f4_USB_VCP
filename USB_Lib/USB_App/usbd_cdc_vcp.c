@@ -148,7 +148,7 @@ static uint16_t VCP_Ctrl(uint32_t Cmd, uint8_t* Buf, uint32_t Len)
  * @param  Len: Number of data to be sent (in bytes)
  * @retval Result of the opeartion: USBD_OK if all operations are OK else VCP_FAIL
  */
-static uint16_t VCP_DataTx(uint8_t* Buf, uint32_t Len)
+uint16_t VCP_DataTx(uint8_t* Buf, uint32_t Len)
 {
    while (Len--) 
    {
@@ -177,8 +177,7 @@ static uint16_t VCP_DataTx(uint8_t* Buf, uint32_t Len)
  * @param  Len: Number of data received (in bytes)
  * @retval Result of the opeartion: USBD_OK if all operations are OK else VCP_FAIL
  */
-
-static uint16_t VCP_DataRx(uint8_t* Buf, uint32_t Len)
+uint16_t VCP_DataRx(uint8_t* Buf, uint32_t Len)
 {
 
    return USBD_OK;
