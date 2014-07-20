@@ -115,34 +115,20 @@ static uint16_t VCP_Ctrl(uint32_t Cmd, uint8_t* Buf, uint32_t Len)
       case GET_ENCAPSULATED_RESPONSE:
          break;
 
-      // Not needed for this driver
       case SET_COMM_FEATURE:                  
       case GET_COMM_FEATURE:
       case CLEAR_COMM_FEATURE:
          break;
 
-         
-      //Note - hw flow control on UART 1-3 and 6 only
       case SET_LINE_CODING: 
-//         if (!ust_config(DISCOVERY_COM, plc))
             return USBD_FAIL;
-         
-//         ust_cpy(&g_lc, plc);           //Copy into structure to save for later
-         break;
-         
-         
+         break;        
       case GET_LINE_CODING:
-//         ust_cpy(plc, &g_lc);
-         break;
-
-         
+         break;        
       case SET_CONTROL_LINE_STATE:
-         /* Not  needed for this driver */
-         //RSW - This tells how to set RTS and DTR
-         break;
 
+         break;
       case SEND_BREAK:
-         /* Not  needed for this driver */
          break;
 
       default:
@@ -195,28 +181,6 @@ static uint16_t VCP_DataTx(uint8_t* Buf, uint32_t Len)
 
 static uint16_t VCP_DataRx(uint8_t* Buf, uint32_t Len)
 {
-   //RSW - Receive USB, send USART
-   while (Len-- > 0) {
-//      USART_SendData(DISCOVERY_COM, *Buf++);
-//      while(USART_GetFlagStatus(DISCOVERY_COM, USART_FLAG_TXE) == RESET)
-         ; 
-   } 
 
-//   GPIO_ToggleBits(LED_RED_GPIO_PORT, LED_RED_PIN);
    return USBD_OK;
 }
-
-
-
-//void DISCOVERY_COM_IRQHandler(void)
-//{
-//   GPIO_ToggleBits(LED_BLUE_GPIO_PORT, LED_BLUE_PIN);
-//
-//   // Send the received data to the PC Host
-//   if (USART_GetITStatus(DISCOVERY_COM, USART_IT_RXNE) != RESET) 
-//     VCP_DataTx(0,0);    //Copies RS232 data to USB
-//
-//   /* If overrun condition occurs, clear the ORE flag and recover communication */
-//   if (USART_GetFlagStatus(DISCOVERY_COM, USART_FLAG_ORE) != RESET)
-//      USART_ReceiveData(DISCOVERY_COM);
-//}
