@@ -18,7 +18,7 @@
 
 __ALIGN_BEGIN USB_OTG_CORE_HANDLE  USB_OTG_dev __ALIGN_END;
 
-
+int8_t test_buf[32];
 //Delay for a while
 //time: delay time
 static void delay(int32_t time)
@@ -28,6 +28,7 @@ static void delay(int32_t time)
 
 int main(void)
 {	
+	int8_t i = 0;
 	LED_Init();
 	Usart2_Init(9600);
 	Myprintf_Init(0x00,myputc);
@@ -35,6 +36,15 @@ int main(void)
 	
 	while(1) 
 	{	
+		for(i=0;i<30;i++)
+		{
+			test_buf[i] = i;
+		}
+		test_buf[i++] = 0x0A;
+		test_buf[i++] = 0x0D;
+		i = 0;
+		//Send to USB
+		VCP_DataTx(test_buf,32);
 		LED_loop();		
 	}
 
