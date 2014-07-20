@@ -29,7 +29,7 @@ static void delay(int32_t time)
 int main(void)
 {	
 	LED_Init();
-	Usart2_Init(230400);
+	Usart2_Init(9600);
 	Myprintf_Init(0x00,myputc);
 	USBD_Init(&USB_OTG_dev,USB_OTG_FS_CORE_ID,&USR_desc,&USBD_CDC_cb,&USR_cb);
 	
