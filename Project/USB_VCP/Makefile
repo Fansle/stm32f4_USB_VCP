@@ -28,7 +28,9 @@ SRC+=	$(CMSIS)/system_stm32f4xx.c \
         $(ST)/src/stm32f4xx_tim.c \
         $(ST)/src/stm32f4xx_spi.c \
         $(ST)/src/stm32f4xx_i2c.c \
-        $(ST)/src/stm32f4xx_sdio.c 
+        $(ST)/src/stm32f4xx_sdio.c \
+        $(ST)/src/stm32f4xx_exti.c \
+        $(ST)/src/stm32f4xx_iwdg.c
 
 #Included Header Files
 CFLAGS_INCLUDE=-I./ \

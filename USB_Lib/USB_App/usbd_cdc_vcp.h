@@ -30,6 +30,8 @@
 #include "usbd_conf.h"
 #include <stdint.h>
 
+
+
 /* Exported typef ------------------------------------------------------------*/
 /* The following structures groups all needed parameters to be configured for the 
    ComPort. These parameters can modified on the fly by the host through CDC class
@@ -40,32 +42,7 @@ typedef struct
   uint8_t  format;
   uint8_t  paritytype;
   uint8_t  datatype;
-}LINE_CODING;
-
-/* Exported constants --------------------------------------------------------*/
-/* The following define is used to route the USART IRQ handler to be used.
-   The IRQ handler function is implemented in the usbd_cdc_vcp.c file. */
-#ifdef USE_STM322xG_EVAL
- #define EVAL_COM_IRQHandler            USART3_IRQHandler
-#elif defined(USE_STM3210C_EVAL)
- #define EVAL_COM_IRQHandler            USART2_IRQHandler
-#endif /* USE_STM322xG_EVAL */
-
-void VCP_put_char(uint8_t buf);
-void VCP_send_str(uint8_t* buf);
-int VCP_get_char(uint8_t *buf);
-int VCP_get_string(uint8_t *buf);
-void VCP_send_buffer(uint8_t* buf, int len);
-
-uint16_t VCP_DataTx   (uint8_t* Buf, uint32_t Len);
-uint16_t VCP_DataRx   (uint8_t* Buf, uint32_t Len);
-
-#define DEFAULT_CONFIG                  0
-#define OTHER_CONFIG                    1
-
-/* Exported macro ------------------------------------------------------------*/
-/* Exported functions ------------------------------------------------------- */
+} LINE_CODING;
 
 #endif /* __USBD_CDC_VCP_H */
 
-/******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/
