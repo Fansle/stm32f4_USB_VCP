@@ -41,6 +41,8 @@ int main(void)
 	return 0;
 }
 
+//////////////////////////Interrupr Functions for USB//////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
 #ifdef USE_USB_OTG_FS
 void OTG_FS_WKUP_IRQHandler(void)
 {
@@ -53,7 +55,6 @@ void OTG_FS_WKUP_IRQHandler(void)
   EXTI_ClearITPendingBit(EXTI_Line18);
 }
 #endif
-
 
 /**
   * @brief  This function handles OTG_HS Handler.
@@ -68,3 +69,5 @@ void OTG_FS_IRQHandler(void)
 {
   USBD_OTG_ISR_Handler (&USB_OTG_dev);
 }
+//////////////////////////End Interrupr Functions for USB//////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
