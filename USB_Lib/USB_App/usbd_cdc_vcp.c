@@ -165,33 +165,13 @@ static uint16_t VCP_Ctrl(uint32_t Cmd, uint8_t* Buf, uint32_t Len)
  */
 static uint16_t VCP_DataTx(uint8_t* Buf, uint32_t Len)
 {
-	uint32_t i = 0;
-
-   //If no buffer, we're supposed to receive USART, send USB
-   if (Buf==NULL) {
-//      if (g_lc.datatype == 7)
-//         APP_Rx_Buffer[APP_Rx_ptr_in] = USART_ReceiveData(DISCOVERY_COM) & 0x7F;
-//      else if (g_lc.datatype == 8)
-//         APP_Rx_Buffer[APP_Rx_ptr_in] = USART_ReceiveData(DISCOVERY_COM);
-
+   while (Len--) 
+   {
+      APP_Rx_Buffer[APP_Rx_ptr_in] = *(Buf++);
       APP_Rx_ptr_in++;
-  
       /* To avoid buffer overflow */
-      if(APP_Rx_ptr_in == APP_RX_DATA_SIZE)
-         APP_Rx_ptr_in = 0;
+      if (APP_Rx_ptr_in == APP_RX_DATA_SIZE) APP_Rx_ptr_in = 0;
    }
-   else {      //If we were passed a buffer, transmit that
-      while (i < Len) {
-         APP_Rx_Buffer[APP_Rx_ptr_in] = *(Buf + i);
-         APP_Rx_ptr_in++;
-         i++;
-
-         /* To avoid buffer overflow */
-         if (APP_Rx_ptr_in == APP_RX_DATA_SIZE) 
-            APP_Rx_ptr_in = 0;
-      }
-   }
-   
 	return USBD_OK;
 }
 
