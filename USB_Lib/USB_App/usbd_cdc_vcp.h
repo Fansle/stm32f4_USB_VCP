@@ -30,7 +30,7 @@
 #include "usbd_conf.h"
 #include <stdint.h>
 
-
+  
 #define USB_RX_DRDY 1
 #define USB_RX_DNRDY 0
 
