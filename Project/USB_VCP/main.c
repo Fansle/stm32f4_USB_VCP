@@ -25,7 +25,7 @@ static void delay(int32_t time)
 {
 	while(time--);
 }
-
+extern uint32_t USB_ENTER_CNT;
 int main(void)
 {	
 	int8_t i = 0;

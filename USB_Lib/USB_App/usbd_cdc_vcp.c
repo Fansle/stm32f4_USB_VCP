@@ -177,23 +177,10 @@ uint16_t VCP_DataTx(uint8_t* Buf, uint32_t Len)
  * @param  Len: Number of data received (in bytes)
  * @retval Result of the opeartion: USBD_OK if all operations are OK else VCP_FAIL
  */
+
 uint16_t VCP_DataRx(uint8_t* Buf, uint32_t Len)
 {
-  uint32_t i;
-  
-  for (i = 0; i < Len; i++)
-  {
-    switch(*(Buf + i))
-      {
-         case 'O':
-            GPIO_SetBits(GPIOD, GPIO_Pin_12);
-            break;
-         case 'F':
-            GPIO_ResetBits(GPIOD, GPIO_Pin_12);
-            break;
-         default:
-            break;
-      }
-  } 
+   //Echo
+   VCP_DataTx(Buf,Len);
    return USBD_OK;
 }
