@@ -180,7 +180,22 @@ uint16_t VCP_DataTx(uint8_t* Buf, uint32_t Len)
 
 uint16_t VCP_DataRx(uint8_t* Buf, uint32_t Len)
 {
-   //Echo
-   VCP_DataTx(Buf,Len);
+   int32_t i=0;
+   if(Len==1)
+   {
+      i = Len;
+   }
+   else if(Len>=10)
+   {
+      i = Len;
+   }
+   else if (Len==64)
+   {
+      i = Len;
+   }
+   else if (Len>64)
+   {
+      i = Len;
+   }
    return USBD_OK;
 }
