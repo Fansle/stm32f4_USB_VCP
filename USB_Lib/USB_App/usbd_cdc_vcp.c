@@ -179,6 +179,21 @@ uint16_t VCP_DataTx(uint8_t* Buf, uint32_t Len)
  */
 uint16_t VCP_DataRx(uint8_t* Buf, uint32_t Len)
 {
-
+  uint32_t i;
+  
+  for (i = 0; i < Len; i++)
+  {
+    switch(*(Buf + i))
+      {
+         case 'O':
+            GPIO_SetBits(GPIOD, GPIO_Pin_12);
+            break;
+         case 'F':
+            GPIO_ResetBits(GPIOD, GPIO_Pin_12);
+            break;
+         default:
+            break;
+      }
+  } 
    return USBD_OK;
 }
