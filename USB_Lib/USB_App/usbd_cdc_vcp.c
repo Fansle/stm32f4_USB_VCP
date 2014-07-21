@@ -35,6 +35,7 @@ LINE_CODING g_lc;
 uint8_t USB_RX_STATUS = 0; //Record data received status from USB Out endpoint
                            //Default setting of USB Rx maximun length is 64 bytes
                            //bit 7::  0=data not ready, 1=data ready
+                           //bit 6~0:: Received data length
 uint8_t* ptrUSB_Rx_Buf = NULL; //data pointer to USB Out endpoint data buffer
 
 
@@ -182,6 +183,6 @@ uint16_t VCP_DataTx(uint8_t* Buf, uint32_t Len)
 
 uint16_t VCP_DataRx(uint8_t* Buf, uint32_t Len)
 {
-   
+
    return USBD_OK;
 }
