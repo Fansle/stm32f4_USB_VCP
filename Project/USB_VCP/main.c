@@ -35,7 +35,9 @@ int main(void)
 	USBD_Init(&USB_OTG_dev,USB_OTG_FS_CORE_ID,&USR_desc,&USBD_CDC_cb,&USR_cb);
 	
 	while(1) 
-	{		
+	{	
+		while((USB_RX_STATUS&0x8000)==USB_RX_DNRDY);//waiting for data
+		LED_loop();
 	}
 
 	return 0;
