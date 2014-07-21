@@ -35,17 +35,7 @@ int main(void)
 	USBD_Init(&USB_OTG_dev,USB_OTG_FS_CORE_ID,&USR_desc,&USBD_CDC_cb,&USR_cb);
 	
 	while(1) 
-	{	
-		for(i=0;i<30;i++)
-		{
-			test_buf[i] = i;
-		}
-		test_buf[i++] = 0x0A;
-		test_buf[i++] = 0x0D;
-		i = 0;
-		//Send to USB
-		VCP_DataTx(test_buf,32);
-		LED_loop();		
+	{		
 	}
 
 	return 0;
