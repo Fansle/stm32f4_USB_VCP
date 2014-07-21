@@ -38,9 +38,6 @@ int main(void)
 	
 	while(1) 
 	{	
-		while((USB_RX_STATUS>>7)==USB_RX_DNRDY);//waiting for data
-		LED_loop();
-		USB_RX_STATUS = 0x00; //clear status
 	}
 
 	return 0;
