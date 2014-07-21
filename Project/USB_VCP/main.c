@@ -38,6 +38,7 @@ int main(void)
 	{	
 		while((USB_RX_STATUS&0x8000)==USB_RX_DNRDY);//waiting for data
 		LED_loop();
+		USB_RX_STATUS = 0x00; //clear status
 	}
 
 	return 0;
