@@ -30,6 +30,13 @@
 #include "usbd_conf.h"
 #include <stdint.h>
 
+#ifndef USB_RX_DRDY
+  USB_RX_DRDY
+#endif
+#ifndef USB_RX_DNRDY
+  USB_RX_DNRDY
+#endif
+  
 //Exported Variables
 extern uint8_t USB_RX_STATUS;
 extern uint8_t* ptrUSB_Rx_Buf; 
