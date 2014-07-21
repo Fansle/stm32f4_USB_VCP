@@ -183,13 +183,15 @@ uint16_t VCP_DataTx(uint8_t* Buf, uint32_t Len)
 
 uint16_t VCP_DataRx(uint8_t* Buf, uint32_t Len)
 {
-   ptrUSB_Rx_Buf = Buf; //point to Rx data buffer
-   USB_RX_STATUS = (uint8_t)(0x7F&Len); //get data length
-   USB_RX_STATUS |= 1<<7; //set data ready bit
-   while((USB_RX_STATUS&0x8000)==USB_RX_DRDY);//waiting for data read by user
-   
-   ptrUSB_Rx_Buf = NULL;   //reset pointer
-   USB_RX_STATUS = 0x00;   //reset status
-   
+   if (Len>1)//Len bigger then 1 means data exisit
+   {
+      ptrUSB_Rx_Buf = Buf; //point to Rx data buffer
+      USB_RX_STATUS = (uint8_t)(0x7F&Len); //get data length
+      USB_RX_STATUS |= 1<<7; //set data ready bit
+      while((USB_RX_STATUS&0x8000)==USB_RX_DRDY);//waiting for data read by user
+      
+      ptrUSB_Rx_Buf = NULL;   //reset pointer
+      USB_RX_STATUS = 0x00;   //reset status
+   }
    return USBD_OK;
 }
