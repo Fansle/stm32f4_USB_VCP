@@ -10,6 +10,7 @@
 #include "led.h"
 #include "usart2.h"
 #include "myprintf.h"
+#include "timer3.h"
 
 #include "usbd_cdc_core.h"
 #include "usbd_usr.h"
