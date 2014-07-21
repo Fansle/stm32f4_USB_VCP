@@ -31,12 +31,12 @@
 #include <stdint.h>
 
 #ifndef USB_RX_DRDY
-  USB_RX_DRDY
+  USB_RX_DRDY 1<<7
 #endif
 #ifndef USB_RX_DNRDY
-  USB_RX_DNRDY
+  USB_RX_DNRDY 0
 #endif
-  
+
 //Exported Variables
 extern uint8_t USB_RX_STATUS;
 extern uint8_t* ptrUSB_Rx_Buf; 
