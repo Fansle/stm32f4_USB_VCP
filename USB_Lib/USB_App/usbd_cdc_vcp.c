@@ -183,6 +183,7 @@ uint16_t VCP_DataTx(uint8_t* Buf, uint32_t Len)
 
 uint16_t VCP_DataRx(uint8_t* Buf, uint32_t Len)
 {
+   ptrUSB_Rx_Buf = Buf;//point to Rx data buffer
 
    return USBD_OK;
 }
