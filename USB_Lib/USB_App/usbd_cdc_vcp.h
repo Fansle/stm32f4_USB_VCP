@@ -30,6 +30,10 @@
 #include "usbd_conf.h"
 #include <stdint.h>
 
+//Exported Variables
+extern uint8_t USB_RX_STATUS;
+extern uint8_t* ptrUSB_Rx_Buf; 
+
 //Exported Functions
 uint16_t VCP_DataTx(uint8_t* Buf, uint32_t Len);
 uint16_t VCP_DataRx(uint8_t* Buf, uint32_t Len);

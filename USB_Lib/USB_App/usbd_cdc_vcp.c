@@ -31,7 +31,11 @@
 LINE_CODING g_lc;
 
 
-
+//Global Variables @Add by RdMaxes
+uint8_t USB_RX_STATUS = 0; //Record data received status from USB Out endpoint
+                           //Default setting of USB Rx maximun length is 64 bytes
+                           //bit 7::  0=data not ready, 1=data ready
+uint8_t* ptrUSB_Rx_Buf = NULL; //data pointer to USB Out endpoint data buffer
 
 
 /* These are external variables imported from CDC core to be used for IN 
