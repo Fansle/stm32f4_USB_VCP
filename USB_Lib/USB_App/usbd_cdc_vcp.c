@@ -47,8 +47,6 @@ extern uint32_t APP_Rx_ptr_in; /* Increment this pointer or roll it back to
 static uint16_t VCP_Init(void);
 static uint16_t VCP_DeInit(void);
 static uint16_t VCP_Ctrl(uint32_t Cmd, uint8_t* Buf, uint32_t Len);
-//static uint16_t VCP_DataTx(uint8_t* Buf, uint32_t Len);
-//static uint16_t VCP_DataRx(uint8_t* Buf, uint32_t Len);
 
 CDC_IF_Prop_TypeDef VCP_fops = {VCP_Init, VCP_DeInit, VCP_Ctrl, VCP_DataTx, VCP_DataRx };
 
@@ -180,22 +178,6 @@ uint16_t VCP_DataTx(uint8_t* Buf, uint32_t Len)
 
 uint16_t VCP_DataRx(uint8_t* Buf, uint32_t Len)
 {
-   int32_t i=0;
-   if(Len==1)
-   {
-      i = Len;
-   }
-   else if(Len>=10)
-   {
-      i = Len;
-   }
-   else if (Len==64)
-   {
-      i = Len;
-   }
-   else if (Len>64)
-   {
-      i = Len;
-   }
+   
    return USBD_OK;
 }
