@@ -31,7 +31,7 @@
 #include <stdint.h>
 
 #ifndef USB_RX_DRDY
-  USB_RX_DRDY 1<<7
+  USB_RX_DRDY 0x8000
 #endif
 #ifndef USB_RX_DNRDY
   USB_RX_DNRDY 0
