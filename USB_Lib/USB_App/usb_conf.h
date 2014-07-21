@@ -160,7 +160,7 @@
 
 /****************** USB OTG FS CONFIGURATION **********************************/
 #ifdef USB_OTG_FS_CORE
- #define RX_FIFO_FS_SIZE                          128
+ #define RX_FIFO_FS_SIZE                          1024
  #define TX0_FIFO_FS_SIZE                          64
  #define TX1_FIFO_FS_SIZE                         128
  #define TX2_FIFO_FS_SIZE                          0
