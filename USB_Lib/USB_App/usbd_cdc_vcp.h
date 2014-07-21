@@ -31,10 +31,10 @@
 #include <stdint.h>
 
 #ifndef USB_RX_DRDY
-  #define USB_RX_DRDY 0x8000
+  #define USB_RX_DRDY 1
 #endif
 #ifndef USB_RX_DNRDY
-  #define USB_RX_DNRDY 0x0000
+  #define USB_RX_DNRDY 0
 #endif
 
 //Exported Variables
