@@ -51,10 +51,11 @@ void TIM3_IRQHandler(void)
 {
     if (TIM_GetITStatus(TIM3, TIM_IT_Update) == SET)
     {
-    	while((USB_RX_STATUS>>7)==USB_RX_DNRDY);//waiting for data
-		LED_loop();
-		USB_RX_STATUS = 0x00; //clear status
-		
+    	if((USB_RX_STATUS>>7)==USB_RX_DRDY)	//check if data is ready
+    	{
+			LED_loop();
+			USB_RX_STATUS = 0x00; //clear status
+		}
 		TIM_ClearITPendingBit(TIM3,TIM_FLAG_Update);	
     }
 }//////////////////////////End Interrupr Functions for Timer3//////////////////////////
